@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Watcher - observador</title>
+</head>
+<body>
+    <header>
+        OBSERVADORES VUEJS
+    </header>
+
+    <section>
+    <div id="app">
+        GIGABYTE: <input type="number" v-model.number="gigabyte">
+
+        MEGABYTE: <input type="number" v-model.number="megabyte">
+        
+        <img id="image" src="https://image.flaticon.com/icons/svg/126/126502.svg" alt="" srcset="">
+
+    </div>
+    </section>
+
+    <footer>
+     <p>&copy Murilo Zermiani</p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            megabyte: null,
+            gigabyte: null
+        },
+
+        watch:{
+            gigabyte(value) {
+            this.megabyte = value * 1024
+            },
+
+            megabyte(value){
+                this.gigabyte = value / 1024
+            } 
+        }
+    })
+</script>
+</body>
+</html>
